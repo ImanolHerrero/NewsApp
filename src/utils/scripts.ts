@@ -1,5 +1,5 @@
 export async function fetchNews(searchQuery: string, category: string) {
-   const apiKey = "8731c86dbfdf4a058da8bb3af86d52f8";
+   const apiKey = import.meta.env.VITE_NEWS_API_KEY;
    const baseUrl = "https://newsapi.org/v2/top-headlines";
 
    try {
