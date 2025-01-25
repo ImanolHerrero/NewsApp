@@ -25,13 +25,14 @@ export function SelectDemo({ onSelectChange }: SelectDemoProps) {
          <SelectContent>
             <SelectGroup>
                <SelectLabel>Category</SelectLabel>
-               <SelectItem value="business">Business</SelectItem>
-               <SelectItem value="entertainment">Entertainment</SelectItem>
                <SelectItem value="general">General</SelectItem>
-               <SelectItem value="health">Health</SelectItem>
+               <SelectItem value="world">World</SelectItem>
+               <SelectItem value="nation">Nation</SelectItem>
+               <SelectItem value="business">Business</SelectItem>
                <SelectItem value="science">Science</SelectItem>
                <SelectItem value="sports">Sports</SelectItem>
                <SelectItem value="technology">Technology</SelectItem>
+               <SelectItem value="health">Health</SelectItem>
             </SelectGroup>
          </SelectContent>
       </Select>

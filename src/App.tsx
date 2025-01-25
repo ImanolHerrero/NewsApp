@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SelectDemo } from "./components/Select";
-import { fetchNews } from "@/utils/scripts";
+import {
+  fetchTopHeadlines,
+  fetchSearchNews,
+} from "@/utils/scripts";
 import { MagnifyingGlassIcon, GitHubLogoIcon, LinkedInLogoIcon, Link2Icon } from "@radix-ui/react-icons";
 
 interface Article {
   title: string;
   description: string;
   url: string;
-  urlToImage: string;
+  image: string;
   publishedAt: string;
   source: {
     name: string;
@@ -18,9 +21,11 @@ interface Article {
 
 function App() {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [selectedCategory, setSelectedCategory] = useState<string>("business");
+  const [selectedCategory, setSelectedCategory] = useState<string>("general");
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -32,20 +37,33 @@ function App() {
 
   const handleSearch = async () => {
     setLoading(true);
-    const news = await fetchNews(searchQuery, selectedCategory);
-    setArticles(news);
+    if (searchQuery.trim()) {
+      console.log("Searching for:", searchQuery, "in category:", selectedCategory);
+      const news = await fetchSearchNews(apiKey, searchQuery, selectedCategory);
+      setArticles(news);
+    } else {
+      console.log("Fetching news for category:", selectedCategory);
+      const news = await fetchTopHeadlines(apiKey, selectedCategory);
+      setArticles(news);
+    }
     setLoading(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
   };
 
   useEffect(() => {
     const fetchInitialNews = async () => {
       setLoading(true);
-      const news = await fetchNews("", "business");
+      const news = await fetchTopHeadlines(apiKey);
       setArticles(news);
       setLoading(false);
     };
     fetchInitialNews();
-  }, []);
+  }, [apiKey]);
 
   return (
     <div className="flex flex-col w-full items-center space-y-6 p-4 bg-gray-50">
@@ -65,6 +83,7 @@ function App() {
           placeholder="Search..."
           value={searchQuery}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown} // Add the keydown event handler here
           className="md:w-full bg-white"
         />
         <SelectDemo onSelectChange={handleCategoryChange} />
@@ -85,7 +104,7 @@ function App() {
                 className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-transform hover:scale-105"
               >
                 <img
-                  src={article.urlToImage}
+                  src={article.image}
                   alt={article.title}
                   className="w-full h-40 object-cover"
                 />
