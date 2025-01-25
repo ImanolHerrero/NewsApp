@@ -72,7 +72,7 @@ function App() {
         <h4 className="text-base max-w-prose">A small ReactJS project showcasing real-time news search with an intuitive and responsive UI powered by API integration.</h4>
         <div className="flex gap-4">
           <a href="https://github.com/ImanolHerrero/NewsApp" target="_blank" className="flex items-center gap-2"><GitHubLogoIcon />Github</a>
-          <a href="https://newsapi.org/" target="_blank" className="flex items-center gap-2"><Link2Icon />API</a>
+          <a href="https://gnews.io/" target="_blank" className="flex items-center gap-2"><Link2Icon />API</a>
           <a href="https://www.linkedin.com/in/imanol-herrero-932956247/" target="_blank" className="flex items-center gap-2"><LinkedInLogoIcon />Linkedin</a>
         </div>
       </div>
