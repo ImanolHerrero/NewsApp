@@ -1,50 +1,26 @@
-# React + TypeScript + Vite
+# 📰 News App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The primary goal of this project was to strengthen my experience using Vite + ReactJS, managing API calls, styling with TailwindCSS, and incorporating components from a framework like shadcn/ui.
 
-Currently, two official plugins are available:
+ ► **[Live demo](https://news-app-indol-seven.vercel.app/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#  🌎 API
 
-## Expanding the ESLint configuration
+You can see the API Im using [here](https://gnews.io/). 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# ✨ Usage
 
-- Configure the top-level `parserOptions` property like this:
+First the page will load the headlines from various newspapers, then the user can search keywords from the same newspapers and even filter from various categorys.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+# 💻 Tech Stack
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+ - Vite + ReactJS.
+ - TailwindCSS.
+ - shadcn/ui.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+# 👀 How to reach me
+ 
+► [**Linkedin**](https://www.linkedin.com/in/imanol-herrero-932956247/)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+► [**Email**](imano.arias@gmail.com)
+
