@@ -2,6 +2,8 @@
 
 The primary goal of this project was to strengthen my experience using Vite + ReactJS, managing API calls, styling with TailwindCSS, and incorporating components from a framework like shadcn/ui.
 
+![NewsApp Screenshot](https://i.imgur.com/qPa9F25.jpeg)
+
  ► **[Live demo](https://news-app-indol-seven.vercel.app/)**
 
 #  🌎 API
